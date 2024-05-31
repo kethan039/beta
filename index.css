@@ -1,0 +1,273 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Serif Text', serif;
+  color: #fff;
+  background-color: #111;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.content {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 800px;
+  text-align: left;
+}
+
+.logo-container {
+  margin-left: 80px;
+}
+
+.logo {
+  max-width: 200px;
+}
+
+h1 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.free {
+  color: deepskyblue;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  font-size: 20px;
+  line-height: 1.5;
+}
+.talk-now-btn {
+  padding: 7px 20px;
+  background-color: #fff;
+  border: none;
+  margin-left: 130px;
+  border-radius: 25px;
+  font-size: 35px;
+  cursor: pointer;
+  color: #000;
+  max-width: 100px;
+  max-height: 50px;
+}
+
+.small-text {
+  font-size: 18px;
+  color: deepskyblue;
+}
+.launch-heading{
+  margin-top: 80px;
+  width: 100%;
+  text-align: center;
+  font-weight: 900;
+  font-size: 50px;
+  margin-bottom: 30px;
+  color: deepskyblue;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.timer-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.timer-unit .number {
+  font-size: 48px;
+  font-weight: 300;
+  color: deepskyblue;
+}
+
+.timer-unit .unit {
+  font-size: 16px;
+  color: #fff;
+  color: deepskyblue;
+}
+
+.count-para {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+.subscribe-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #222;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
+.g-recaptcha{
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: deepskyblue;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+}
+
+@media only screen and (max-width: 767px) {
+  .content {
+    position: static;
+    transform: none;
+    width: 90%; /* Increase the width to 90% */
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    left: 50%; /* Center the content horizontally */
+  }
+  h1{
+    font-size: 24px;
+  }
+  li{
+    font-size: 15px;
+  }
+  p{
+    font-size: 15px;
+
+  }
+  .logo-container {
+    margin-left: 0;
+  }
+
+  h1, p, ul, .talk-now {
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+  }
+  .talk-now {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .small-text {
+    margin-left: 0;
+    text-align: center;
+    transform: translateX(-20px);
+  }
+  .g-recaptcha {
+    margin: 20px 0;
+  }
+  .launch-heading{
+    font-size: 30px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .content {
+    position: static;
+    transform: none;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .logo-container {
+    margin-left: 0;
+  }
+
+  h1, p, ul, .talk-now {
+    text-align: center;
+  }
+  
+
+  p {
+    margin-top: 50px;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .talk-now {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .small-text {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  #demo-form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .g-recaptcha {
+    margin: 20px 0;
+  }
+
+  .subscribe-para {
+    text-align: center;
+    margin-top: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

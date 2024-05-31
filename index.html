@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- set favicon.png img -->
+  <link rel="icon" href="./public/favicon.png" type="image/png" sizes="16x16">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:wght@400&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" />
+  <link rel="stylesheet" href="./index.css" />
+  <title>Intbuddy</title>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  <script>
+    function onSubmit(token) {
+      //verify the email address
+      const emailId = document.querySelector('input[type="email"]').value;
+      const status = emailVerification(emailId);
+      if(!status.isCorrect){
+        document.querySelector('label[for="email"]').innerText = status.textPopUp;
+        document.querySelector('label[for="email"]').classList.add('error');
+        return
+      }
+      //submit the form and get the response using jquery
+      $.ajax({
+        type: "POST",
+        url: "./subscribe.php",
+        data: {email: emailId, token: token},
+        success: function(response){
+          console.log(response); //1 for success, 2 for already subscribed, 0 for error
+          //put 1 and 2 in sucess class and 0 in error class
+          if(response == 1){
+            document.querySelector('label[for="email"]').innerText = 'Thank you for subscribing';
+            document.querySelector('label[for="email"]').classList.add('success');
+          }else if(response == 2){
+            document.querySelector('label[for="email"]').innerText = 'You are already subscribed';
+            document.querySelector('label[for="email"]').classList.add('success');
+          }else{
+            document.querySelector('label[for="email"]').innerText = 'There was an error while subscribing. Please try again.';
+            document.querySelector('label[for="email"]').classList.add('error');
+          }
+
+        }
+      });
+
+
+    }
+    function emailVerification(emailId) {
+      const regx = /^([a-zA-Z0-9\._]{3,50})@([a-zA-Z0-9]{2,20})\.([a-z]{2,20})(\.[a-z]+)*$/;
+      let status = {isCorrect:true,textPopUp:'You have entered a valid Email Id'}
+      if (regx.test(emailId)) {
+        return status
+      } else {
+        status.isCorrect = false
+        status.textPopUp = 'The Email Id you have entered is incorrect'
+        return status
+      }
+      }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="index.js"></script>
+</head>
+<body>
+  <div class="container">
+    <img src="./public/background-shape@2x.png" alt="Background Image" class="background-image">
+    <div class="content">
+      <div class="logo-container">
+        <img src="./public/removed-bg-white-logo-intbuddy-1@2x.png" alt="int buddy logo" class="logo">
+      </div>
+      <div class="left-text">
+      <h1>Get <span class="free">FREE</span> Consultancy for Your Study in the UK</h1>
+      <p>Want to study in the UK? Let int buddy be your true friend on this super exciting journey! Have a one-on-one talk with recent alumni and get the real scoop on everything you need to know. Learn from their successes and avoid their mistakes.</p>
+      <ul>
+        <li>Get useful advice on universities, courses, part-time jobs, and scholarships.</li>
+        <li>Absolutely Free consultation from recent alumni.</li>
+        <li>Real &amp; unbiased answers to every doubt you have.</li>
+      </ul>
+    </div>
+      <div class="talk-now"><!-- Google Calendar Appointment Scheduling begin -->
+        <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+        <script>
+        (function() {
+          var target = document.currentScript;
+          window.addEventListener('load', function() {
+            calendar.schedulingButton.load({
+              url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jfHC5lLgL3JU4RW4MZZHqGNcAjloQybbFIbsFz0HoWlZHR8L_-OgtIe-19Ji__kVC8E1l61uf?gv=true',
+              color: '#ffffff',
+              label: "     Let's Talk Now!     ",
+              target,
+            });
+          });
+        })();
+        </script>
+        <!-- end Google Calendar Appointment Scheduling --></div>
+      <p class="small-text">30 mins talk with recent UK alumni</p>
+    </div>
+  </div>
+  <div class="container">
+    <img src="./public/Beta Baclground Page.png" alt="Background Image" class="background-image">
+    <h1 class="launch-heading">We are Launching soon...</h1>
+    <div class="countdown-timer">
+        <div class="timer-unit">
+            <span class="number" id="days">30</span>
+            <span class="unit">Days</span>
+        </div>
+        <div class="timer-unit">
+            <span class="number" id="hours">23</span>
+            <span class="unit">Hours</span>
+        </div>
+        <div class="timer-unit">
+            <span class="number" id="minutes">59</span>
+            <span class="unit">Minutes</span>
+        </div>
+        <div class="timer-unit">
+            <span class="number" id="seconds">59</span>
+            <span class="unit">Seconds</span>
+        </div>
+    </div>
+    <p class="count-para">One-stop solution platform built by international students for international students.</p>
+    <form id="demo-form" action="subscribe.php" method="POST">
+      <input type="email" name="email" placeholder="Email Address" required value=""/>
+      <br/>
+      <label for="email"></label>
+    <button class="g-recaptcha" data-sitekey="6LcO8uwpAAAAAA0Y8pcF5zDoLN4Asrxs19mBlvV2" data-callback="onSubmit">Submit</button>
+    <br/>
+  </form>
+    <p class="subscribe-para">Subscribe to our site & get notify when we will launch.</p>
+</div>
+
+
+  </div>
+ 
+</body>
+</html>
+
