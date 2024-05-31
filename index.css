@@ -78,7 +78,7 @@ li {
 }
 
 .small-text {
-  font-size: 18px;
+  font-size: 13px;
   color: deepskyblue;
 }
 .launch-heading{
@@ -161,31 +161,29 @@ input[type="email"] {
   cursor: pointer;
   color: #fff;
 }
-
 @media only screen and (max-width: 767px) {
   .content {
     position: static;
     transform: none;
-    width: 90%; /* Increase the width to 90% */
+    width: 90%;
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
-    left: 50%; /* Center the content horizontally */
+    left: 50%;
   }
-  h1{
+  h1 {
     font-size: 24px;
   }
-  li{
+  li {
     font-size: 15px;
   }
-  p{
-    font-size: 15px;
 
+  p {
+    font-size: 15px;
   }
   .logo-container {
     margin-left: 0;
   }
-
   h1, p, ul, .talk-now {
     text-align: center;
   }
@@ -198,16 +196,24 @@ input[type="email"] {
     align-items: center;
     justify-content: center;
   }
+
   .small-text {
-    margin-left: 0;
+    align-items: center;
     text-align: center;
-    transform: translateX(-20px);
+    font-size: 13px;
   }
   .g-recaptcha {
     margin: 20px 0;
   }
-  .launch-heading{
+  .launch-heading {
     font-size: 30px;
+  }
+  .subscribe-para {
+    text-align: center;
+    margin-top: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
